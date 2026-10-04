@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Target and Module Settings */
+    "target": "es2016" /* Specify ECMAScript target version */,
+    "module": "NodeNext" /* Standard for modern Node.js environments */,
+    "moduleResolution": "NodeNext" /* Match Node.js module resolution strategy */,
+
+    /* Directories */
+    "rootDir": "./src" /* Source folder containing your Express files */,
+    "outDir": "./dist" /* Destination folder for compiled JavaScript */,
+
+    /* Compliance & Interoperability */
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules */,
+    "forceConsistentCasingInFileNames": true /* Ensure correct casing in imports */,
+
+    /* Type Checking Rules */
+    "strict": true /* Enable all strict type-checking options */,
+    "noUnusedLocals": true /* Report errors on unused local variables */,
+    "noUnusedParameters": true /* Report errors on unused function parameters */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value */,
+    "skipLibCheck": true /* Skip type checking of declaration files (.d.ts) */
+  },
+  "include": ["src/**/*"] /* Files to include in compilation */,
+  "exclude": ["node_modules", "dist"] /* Files to ignore */
+}
