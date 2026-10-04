@@ -1,13 +1,11 @@
 import express from "express";
 
 import env from "./config/env-validate";
+import router from "./routes";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  console.log("Request received", req);
-  res.send("Hello, World!");
-});
+app.use(router());
 
 app.listen(env.PORT, () => {
   console.log(`Server is running on port ${env.PORT}`);
