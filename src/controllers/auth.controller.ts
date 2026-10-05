@@ -85,3 +85,9 @@ export const login: RequestHandler = async (req, res, next) => {
     }),
   );
 };
+
+export const logout: RequestHandler = async (req, res) => {
+  res.clearCookie("accessToken");
+  res.clearCookie("refreshToken");
+  res.status(200).json(ok({ message: "Logged out successfully" }));
+};
