@@ -1,11 +1,13 @@
 import { Router } from "express";
 
-import userRoutes from "./user.routes";
+import moviesRoutes from "./movies.routes";
+import authRoutes from "./auth.routes";
 
 const router = Router();
 
 export default () => {
-  userRoutes(router);
+  moviesRoutes(router);
+  authRoutes(router);
 
   return router;
 };

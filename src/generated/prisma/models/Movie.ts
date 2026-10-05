@@ -242,7 +242,7 @@ export type MovieWhereInput = {
   genre?: Prisma.StringNullableListFilter<"Movie">
   runtime?: Prisma.IntNullableFilter<"Movie"> | number | null
   posterPath?: Prisma.StringNullableFilter<"Movie"> | string | null
-  createdBy?: Prisma.StringFilter<"Movie"> | string
+  createdBy?: Prisma.UuidFilter<"Movie"> | string
   createdAt?: Prisma.DateTimeFilter<"Movie"> | Date | string
   creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   watchlistItems?: Prisma.WatchlistItemListRelationFilter
@@ -273,7 +273,7 @@ export type MovieWhereUniqueInput = Prisma.AtLeast<{
   genre?: Prisma.StringNullableListFilter<"Movie">
   runtime?: Prisma.IntNullableFilter<"Movie"> | number | null
   posterPath?: Prisma.StringNullableFilter<"Movie"> | string | null
-  createdBy?: Prisma.StringFilter<"Movie"> | string
+  createdBy?: Prisma.UuidFilter<"Movie"> | string
   createdAt?: Prisma.DateTimeFilter<"Movie"> | Date | string
   creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   watchlistItems?: Prisma.WatchlistItemListRelationFilter
@@ -307,7 +307,7 @@ export type MovieScalarWhereWithAggregatesInput = {
   genre?: Prisma.StringNullableListFilter<"Movie">
   runtime?: Prisma.IntNullableWithAggregatesFilter<"Movie"> | number | null
   posterPath?: Prisma.StringNullableWithAggregatesFilter<"Movie"> | string | null
-  createdBy?: Prisma.StringWithAggregatesFilter<"Movie"> | string
+  createdBy?: Prisma.UuidWithAggregatesFilter<"Movie"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Movie"> | Date | string
 }
 
@@ -597,7 +597,7 @@ export type MovieScalarWhereInput = {
   genre?: Prisma.StringNullableListFilter<"Movie">
   runtime?: Prisma.IntNullableFilter<"Movie"> | number | null
   posterPath?: Prisma.StringNullableFilter<"Movie"> | string | null
-  createdBy?: Prisma.StringFilter<"Movie"> | string
+  createdBy?: Prisma.UuidFilter<"Movie"> | string
   createdAt?: Prisma.DateTimeFilter<"Movie"> | Date | string
 }
 

@@ -233,8 +233,8 @@ export type WatchlistItemWhereInput = {
   OR?: Prisma.WatchlistItemWhereInput[]
   NOT?: Prisma.WatchlistItemWhereInput | Prisma.WatchlistItemWhereInput[]
   id?: Prisma.UuidFilter<"WatchlistItem"> | string
-  userId?: Prisma.StringFilter<"WatchlistItem"> | string
-  movieId?: Prisma.StringFilter<"WatchlistItem"> | string
+  userId?: Prisma.UuidFilter<"WatchlistItem"> | string
+  movieId?: Prisma.UuidFilter<"WatchlistItem"> | string
   status?: Prisma.EnumWatchlistStatusFilter<"WatchlistItem"> | $Enums.WatchlistStatus
   rating?: Prisma.IntNullableFilter<"WatchlistItem"> | number | null
   notes?: Prisma.StringNullableFilter<"WatchlistItem"> | string | null
@@ -262,8 +262,8 @@ export type WatchlistItemWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.WatchlistItemWhereInput | Prisma.WatchlistItemWhereInput[]
   OR?: Prisma.WatchlistItemWhereInput[]
   NOT?: Prisma.WatchlistItemWhereInput | Prisma.WatchlistItemWhereInput[]
-  userId?: Prisma.StringFilter<"WatchlistItem"> | string
-  movieId?: Prisma.StringFilter<"WatchlistItem"> | string
+  userId?: Prisma.UuidFilter<"WatchlistItem"> | string
+  movieId?: Prisma.UuidFilter<"WatchlistItem"> | string
   status?: Prisma.EnumWatchlistStatusFilter<"WatchlistItem"> | $Enums.WatchlistStatus
   rating?: Prisma.IntNullableFilter<"WatchlistItem"> | number | null
   notes?: Prisma.StringNullableFilter<"WatchlistItem"> | string | null
@@ -294,8 +294,8 @@ export type WatchlistItemScalarWhereWithAggregatesInput = {
   OR?: Prisma.WatchlistItemScalarWhereWithAggregatesInput[]
   NOT?: Prisma.WatchlistItemScalarWhereWithAggregatesInput | Prisma.WatchlistItemScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"WatchlistItem"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"WatchlistItem"> | string
-  movieId?: Prisma.StringWithAggregatesFilter<"WatchlistItem"> | string
+  userId?: Prisma.UuidWithAggregatesFilter<"WatchlistItem"> | string
+  movieId?: Prisma.UuidWithAggregatesFilter<"WatchlistItem"> | string
   status?: Prisma.EnumWatchlistStatusWithAggregatesFilter<"WatchlistItem"> | $Enums.WatchlistStatus
   rating?: Prisma.IntNullableWithAggregatesFilter<"WatchlistItem"> | number | null
   notes?: Prisma.StringNullableWithAggregatesFilter<"WatchlistItem"> | string | null
@@ -568,8 +568,8 @@ export type WatchlistItemScalarWhereInput = {
   OR?: Prisma.WatchlistItemScalarWhereInput[]
   NOT?: Prisma.WatchlistItemScalarWhereInput | Prisma.WatchlistItemScalarWhereInput[]
   id?: Prisma.UuidFilter<"WatchlistItem"> | string
-  userId?: Prisma.StringFilter<"WatchlistItem"> | string
-  movieId?: Prisma.StringFilter<"WatchlistItem"> | string
+  userId?: Prisma.UuidFilter<"WatchlistItem"> | string
+  movieId?: Prisma.UuidFilter<"WatchlistItem"> | string
   status?: Prisma.EnumWatchlistStatusFilter<"WatchlistItem"> | $Enums.WatchlistStatus
   rating?: Prisma.IntNullableFilter<"WatchlistItem"> | number | null
   notes?: Prisma.StringNullableFilter<"WatchlistItem"> | string | null
