@@ -12,5 +12,18 @@ model User {
     id        String   @id @default(uuid()) @db.Uuid
     name      String?
     email     String   @unique
+    password  String
     createdAt DateTime @default(now())
+}
+
+model Movie {
+    id          String   @id @default(uuid()) @db.Uuid
+    title       String
+    overview    String?
+    releaseDate DateTime
+    genre       String[] @default([])
+    runtime     Int?
+    posterPath  String?
+    createdBy   String
+    createdAt   DateTime @default(now())
 }
