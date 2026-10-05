@@ -40,15 +40,9 @@ export const register: RequestHandler = async (req, res, next) => {
 
   res.status(201).json(
     ok({
-      user: {
-        id: newUser.id,
-        name: newUser.name,
-        email: newUser.email,
-      },
-      tokens: {
-        accessToken,
-        refreshToken,
-      },
+      id: newUser.id,
+      name: newUser.name,
+      email: newUser.email,
     }),
   );
 };
@@ -77,7 +71,13 @@ export const login: RequestHandler = async (req, res, next) => {
     return next(new AppError("Invalid password", 401));
   }
 
-  res.status(200).json(
+  const { accessToken, refreshToken } = generateTokens({
+    userId: user.id,
+  });
+  saveTokenToCookie(res, accessToken, "accessToken");
+  saveTokenToCookie(res, refreshToken, "refreshToken");
+
+  res.status(201).json(
     ok({
       id: user.id,
       name: user.name,
