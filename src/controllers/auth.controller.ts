@@ -86,8 +86,23 @@ export const login: RequestHandler = async (req, res, next) => {
   );
 };
 
-export const logout: RequestHandler = async (req, res) => {
+export const logout: RequestHandler = async (_req, res) => {
   res.clearCookie("accessToken");
   res.clearCookie("refreshToken");
   res.status(200).json(ok({ message: "Logged out successfully" }));
+};
+
+export const refreshToken: RequestHandler = async (req, res, next) => {
+  const { accessToken, refreshToken } = generateTokens({
+    userId: req.userId!,
+  });
+  saveTokenToCookie(res, accessToken, "accessToken");
+  saveTokenToCookie(res, refreshToken, "refreshToken");
+
+  res.status(201).json(
+    ok({
+      accessToken,
+      refreshToken,
+    }),
+  );
 };

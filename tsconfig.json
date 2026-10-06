@@ -4,7 +4,7 @@
     "target": "es2016" /* Specify ECMAScript target version */,
     "module": "NodeNext" /* Standard for modern Node.js environments */,
     "moduleResolution": "NodeNext" /* Match Node.js module resolution strategy */,
-
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     /* Directories */
     "rootDir": "./src" /* Source folder containing your Express files */,
     "outDir": "./dist" /* Destination folder for compiled JavaScript */,
