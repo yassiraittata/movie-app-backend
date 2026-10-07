@@ -1,7 +1,7 @@
 import { RequestHandler } from "express-serve-static-core";
 import prisma from "../config/db.js";
 import { AppError, ok } from "../lib/appError.js";
-import { watchlistSchema } from "../schemas/watchlist.schema.js";
+import { watchlistDto, watchlistSchema } from "../schemas/watchlist.schema.js";
 
 export const addTowatchList: RequestHandler<{ movieId: string }> = async (
   req,
@@ -47,4 +47,38 @@ export const addTowatchList: RequestHandler<{ movieId: string }> = async (
   });
 
   res.status(201).json(ok(watchListItem));
+};
+
+export const updateWatchlist: RequestHandler<
+  { id: string },
+  unknown,
+  watchlistDto
+> = async (req, res, next) => {
+  const { id } = req.params;
+  const { notes, rating, status } = req.body;
+
+  const watchlistItem = await prisma.watchlistItem.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  if (!watchlistItem) {
+    return next(new AppError("Item was not found", 404));
+  }
+
+  await prisma.watchlistItem.update({
+    where: { id },
+    data: {
+      notes: notes || watchlistItem.notes,
+      rating: rating || watchlistItem.rating,
+      status: status || watchlistItem.status,
+    },
+  });
+
+  res.status(201).json(
+    ok({
+      message: "item was updated successfully",
+    }),
+  );
 };
