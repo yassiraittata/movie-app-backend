@@ -24,3 +24,6 @@ export const loginSchema = z.object({
   email,
   password,
 });
+
+export type loginType = z.infer<typeof loginSchema>;
+export type registerType = z.infer<typeof registerSchema>;

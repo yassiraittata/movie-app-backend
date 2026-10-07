@@ -3,18 +3,15 @@ import * as argon2 from "argon2";
 
 import prisma from "../config/db.js";
 import { AppError, ok } from "../lib/appError.js";
-import { loginSchema, registerSchema } from "../schemas/auth.schema.js";
+import { loginType, registerType } from "../schemas/auth.schema.js";
 import { generateTokens, saveTokenToCookie } from "../utils/token.js";
 
-export const register: RequestHandler = async (req, res, next) => {
-  const { success, data, error } = registerSchema.safeParse(req.body);
-
-  if (!success) {
-    let messages = error.issues.map((err) => err.message).join(", ");
-    return next(new AppError(messages, 400));
-  }
-
-  const { name, email, password } = data;
+export const register: RequestHandler<unknown, unknown, registerType> = async (
+  req,
+  res,
+  next,
+) => {
+  const { name, email, password } = req.body;
 
   const user = await prisma.user.findUnique({
     where: { email },
@@ -47,15 +44,12 @@ export const register: RequestHandler = async (req, res, next) => {
   );
 };
 
-export const login: RequestHandler = async (req, res, next) => {
-  const { success, data, error } = loginSchema.safeParse(req.body);
-
-  if (!success) {
-    let messages = error.issues.map((err) => err.message).join(", ");
-    return next(new AppError(messages, 400));
-  }
-
-  const { email, password } = data;
+export const login: RequestHandler<unknown, unknown, loginType> = async (
+  req,
+  res,
+  next,
+) => {
+  const { email, password } = req.body;
 
   const user = await prisma.user.findUnique({
     where: { email },

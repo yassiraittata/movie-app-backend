@@ -5,6 +5,6 @@ export const watchlistSchema = z.object({
     .enum(["PLANNED", "WATCHING", "COMPLETED", "DROPPED"])
     .default("PLANNED")
     .optional(),
-  rating: z.int(),
+  rating: z.coerce.number().int(),
   notes: z.string().optional(),
 });
